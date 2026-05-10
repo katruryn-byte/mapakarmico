@@ -9,10 +9,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--gold:#c9a84c;--purple:#a07fff;--dark:#06030e;--card:#0d0620;--border:#1c0e40;--text:#e5d0ff;--muted:#7a5ea0}
 body,html{background:var(--dark);color:var(--text);font-family:'Cormorant Garamond',serif;scroll-behavior:smooth;overflow-x:hidden}
-
-/* HERO */
+.nav{background:rgba(6,3,14,.97);border-bottom:1px solid var(--border);padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;backdrop-filter:blur(10px)}
+.nav-logo{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--gold);letter-spacing:.1em}
+.nav-logo em{color:var(--purple);font-style:normal}
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.5rem;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#1a0535 0%,#06030e 70%)}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:1}
 .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
 .orb1{width:400px;height:400px;background:rgba(90,20,160,0.15);top:-100px;left:-100px}
 .orb2{width:300px;height:300px;background:rgba(201,168,76,0.08);bottom:-50px;right:-50px}
@@ -25,63 +25,91 @@ body,html{background:var(--dark);color:var(--text);font-family:'Cormorant Garamo
 .price-de{font-size:.9rem;color:#5a3d80;text-decoration:line-through;margin-bottom:.2rem}
 .price-por{font-family:'Cinzel',serif;font-size:2.5rem;color:var(--gold);line-height:1}
 .price-label{font-size:.75rem;color:#7a5ea0;margin-top:.3rem}
-.btn-comprar{display:inline-block;background:linear-gradient(135deg,#5a1090,#a07fff);border:none;color:#fff;font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.15em;padding:1rem 2.5rem;border-radius:30px;cursor:pointer;transition:all .3s;text-decoration:none;animation:fadeUp .8s .6s ease both;box-shadow:0 8px 32px rgba(160,127,255,0.3)}
-.btn-comprar:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(160,127,255,0.5)}
-.hero-seguro{font-size:.72rem;color:#3a2560;margin-top:1rem;animation:fadeUp .8s .7s ease both}
-
-/* SECTIONS */
-.section{padding:4rem 1.5rem}
-.section.alt{background:rgba(13,6,32,0.5)}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,#5a1090,#a07fff);border:none;color:#fff;font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.15em;padding:1rem 2.5rem;border-radius:30px;cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 8px 32px rgba(160,127,255,0.3)}
+.btn-cta:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(160,127,255,0.5)}
+.section{padding:4rem 1.5rem}.section.alt{background:rgba(13,6,32,0.5)}
 .sec-label{font-family:'Cinzel',serif;font-size:.6rem;color:var(--gold);letter-spacing:.25em;text-align:center;margin-bottom:.5rem}
 .sec-title{font-family:'Cinzel',serif;font-size:clamp(1.3rem,3vw,2rem);text-align:center;color:#f0d080;margin-bottom:.6rem;line-height:1.3}
 .sec-sub{font-size:.95rem;color:var(--muted);text-align:center;font-style:italic;line-height:1.8;max-width:560px;margin:0 auto 2.5rem}
-
-/* O QUE VOCÊ VAI DESCOBRIR */
-.descobrir-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;max-width:900px;margin:0 auto}
-.descobrir-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
-.descobrir-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple),transparent);opacity:0;transition:opacity .3s}
-.descobrir-card:hover{transform:translateY(-4px);border-color:rgba(160,127,255,0.3)}.descobrir-card:hover::before{opacity:1}
-.dc-icon{font-size:1.8rem;margin-bottom:.7rem}
-.dc-title{font-family:'Cinzel',serif;font-size:.78rem;color:#f0d080;letter-spacing:.08em;margin-bottom:.5rem}
-.dc-text{font-size:.88rem;color:#6a4d90;line-height:1.75;font-weight:300}
-
-/* PARA QUEM É */
-.paraquem{max-width:700px;margin:0 auto;display:grid;gap:.7rem}
-.pq-item{display:flex;align-items:flex-start;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.2rem}
-.pq-icon{font-size:1.2rem;flex-shrink:0;margin-top:.1rem}
-.pq-text{font-size:.9rem;color:#8a6db0;line-height:1.7;font-style:italic}
-
-/* O QUE INCLUI */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;max-width:900px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(160,127,255,0.3)}
+.card-icon{font-size:1.8rem;margin-bottom:.7rem}
+.card-title{font-family:'Cinzel',serif;font-size:.78rem;color:#f0d080;letter-spacing:.08em;margin-bottom:.5rem}
+.card-text{font-size:.88rem;color:#6a4d90;line-height:1.75;font-weight:300}
 .inclui-list{max-width:600px;margin:0 auto;display:grid;gap:.6rem}
 .inclui-item{display:flex;align-items:center;gap:.8rem;font-size:.9rem;color:#9070c0;line-height:1.6}
 .inclui-check{color:var(--gold);font-size:1rem;flex-shrink:0}
-
-/* DEPOIMENTOS */
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;max-width:900px;margin:0 auto}
 .testi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem}
-.testi-stars{color:var(--gold);margin-bottom:.6rem;font-size:.9rem}
+.testi-stars{color:var(--gold);margin-bottom:.6rem}
 .testi-text{font-size:.9rem;color:#7a5ea0;line-height:1.8;font-style:italic;margin-bottom:.8rem}
 .testi-name{font-family:'Cinzel',serif;font-size:.6rem;color:#5a3d80;letter-spacing:.1em}
 
-/* CTA FINAL */
-.cta{max-width:600px;margin:0 auto;background:linear-gradient(135deg,rgba(90,20,160,.1),rgba(201,168,76,.05));border:1px solid rgba(160,127,255,.2);border-radius:22px;padding:3rem 2rem;text-align:center}
-.cta h2{font-family:'Cinzel',serif;font-size:clamp(1.2rem,3vw,1.8rem);color:#f0d080;margin-bottom:.8rem;line-height:1.3}
-.cta p{font-size:.95rem;color:var(--muted);font-style:italic;line-height:1.8;margin-bottom:1.5rem}
+/* FORMULÁRIO + CHECKOUT */
+.checkout-section{max-width:680px;margin:0 auto;padding:2rem 1.5rem 4rem}
+.checkout-header{text-align:center;margin-bottom:2rem}
+.checkout-header h2{font-family:'Cinzel',serif;font-size:1.3rem;color:#f0d080;letter-spacing:.1em;margin-bottom:.4rem}
+.checkout-header p{font-size:.88rem;color:var(--muted);font-style:italic}
+.fbox{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.6rem;margin-bottom:1rem}
+.fbox-title{font-family:'Cinzel',serif;font-size:.72rem;color:#b090e0;letter-spacing:.12em;margin-bottom:1rem;text-align:center}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.fd{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.8rem;position:relative}
+.fd label{font-family:'Cinzel',serif;font-size:.56rem;color:#5a3d80;letter-spacing:.12em;text-transform:uppercase}
+.fd input,.fd select{background:#110830;border:1px solid #2a1650;color:var(--text);border-radius:8px;padding:.55rem .85rem;font-family:'Cormorant Garamond',serif;font-size:.95rem;width:100%;transition:border-color .2s}
+.fd input:focus,.fd select:focus{outline:none;border-color:#8040d0}
+.fd input::placeholder{color:#3a2560}
+.autocomplete-results{display:none;position:absolute;top:100%;left:0;right:0;background:#110830;border:1px solid #2a1650;border-radius:8px;z-index:999;max-height:200px;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.autocomplete-item{padding:.6rem .9rem;cursor:pointer;font-size:.85rem;color:var(--text);border-bottom:1px solid var(--border);transition:background .15s}
+.autocomplete-item:hover{background:var(--border)}
+.preco-box{background:linear-gradient(135deg,#180800,#200c00);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:1rem 1.3rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center}
+.preco-label{font-family:'Cinzel',serif;font-size:.72rem;color:#7a5030}
+.preco-val{font-family:'Cinzel',serif;font-size:1.6rem;color:var(--gold)}
+.err-msg{background:#1a0808;border:1px solid #4a1515;border-radius:8px;padding:.6rem 1rem;color:#e09090;font-size:.8rem;text-align:center;margin-bottom:.7rem;display:none}
+.btn-pagar{width:100%;padding:.88rem;background:linear-gradient(135deg,#5a1090,#a07fff);border:none;border-radius:11px;color:#fff;font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.14em;cursor:pointer;transition:opacity .2s;margin-top:.5rem}
+.btn-pagar:hover{opacity:.88}
+.btn-pagar:disabled{opacity:.5;cursor:not-allowed}
 
-/* FOOTER */
+/* CHECKOUT BRICKS */
+.checkout-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.6rem;margin-top:1rem;display:none}
+.checkout-box-title{font-family:'Cinzel',serif;font-size:.72rem;color:#b090e0;letter-spacing:.12em;margin-bottom:1rem;text-align:center}
+#cardPaymentBrick_container{min-height:300px}
+
+/* AGUARDANDO */
+.aguardando-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;display:none;margin-top:1rem}
+.aguardando-box svg{animation:spin 2s linear infinite;margin-bottom:1rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.aguardando-box p{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.5rem}
+.aguardando-box small{font-size:.78rem;color:var(--muted)}
+
+/* RESULTADO */
+.resultado-box{display:none;margin-top:1rem}
+.res-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem;margin-bottom:.8rem}
+.res-card h3{font-family:'Cinzel',serif;font-size:.73rem;color:#b090e0;letter-spacing:.12em;margin-bottom:.6rem;display:flex;align-items:center;gap:.45rem}
+.res-card h3::after{content:'';flex:1;height:1px;background:var(--border)}
+.res-card p{font-size:.97rem;color:#d0b8f5;line-height:1.88;font-weight:300}
+.download-box{background:linear-gradient(135deg,#0a1828,#0d2030);border:1px solid rgba(144,192,224,.3);border-radius:14px;padding:1.3rem;text-align:center;margin-top:1rem}
+.download-box p{font-size:.85rem;color:#7090c0;margin-bottom:.8rem}
+.btn-download{background:linear-gradient(135deg,#1a3050,#2a5080);border:none;border-radius:10px;color:#90c0e0;font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.12em;padding:.7rem 1.5rem;cursor:pointer;transition:opacity .2s}
+.btn-download:hover{opacity:.82}
+
 footer{border-top:1px solid var(--border);padding:2rem 1.5rem;text-align:center}
 .footer-logo{font-family:'Cinzel',serif;font-size:1rem;color:var(--gold);margin-bottom:.4rem}
 .footer-text{font-size:.75rem;color:#4a3060;line-height:1.7}
-
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:580px){.descobrir-grid{grid-template-columns:1fr}.testi-grid{grid-template-columns:1fr}}
+@media(max-width:580px){.r2{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.testi-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
+<nav class="nav">
+  <div class="nav-logo">Astral<em>IA</em></div>
+  <a href="https://astralia.online" style="font-family:'Cinzel',serif;font-size:.6rem;color:var(--muted);text-decoration:none;letter-spacing:.1em">← Voltar ao site</a>
+</nav>
+
+<!-- HERO -->
 <div class="hero">
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
   <div class="hero-badge">✦ Astrologia Kármica Profunda ✦</div>
   <div class="hero-icon">🔮</div>
   <h1 class="hero-title">MAPA KÁRMICO</h1>
@@ -92,55 +120,44 @@ footer{border-top:1px solid var(--border);padding:2rem 1.5rem;text-align:center}
     <div class="price-por">R$ 47,97</div>
     <div class="price-label">🔥 Promoção de lançamento · PDF completo gerado na hora</div>
   </div>
-  <a href="https://astralia.online" target="_blank" class="btn-comprar">🔮 Quero Meu Mapa Kármico</a>
-  <p class="hero-seguro">🔒 Pagamento seguro via Mercado Pago · PIX e Cartão · Dados protegidos pela LGPD</p>
+  <a href="#checkout" class="btn-cta">🔮 Quero Meu Mapa Kármico</a>
+  <p style="font-size:.72rem;color:#3a2560;margin-top:1rem">🔒 Pagamento seguro · PIX e Cartão · Dados protegidos pela LGPD</p>
 </div>
 
+<!-- O QUE VOCÊ VAI DESCOBRIR -->
 <div class="section">
   <div class="sec-label">✦ O Que Você Vai Descobrir</div>
   <h2 class="sec-title">Revelações Profundas da Sua Alma</h2>
   <p class="sec-sub">O Mapa Kármico vai além do mapa natal comum — ele revela o que sua alma trouxe de outras existências.</p>
-  <div class="descobrir-grid">
-    <div class="descobrir-card"><div class="dc-icon">☊</div><div class="dc-title">Nodo Norte — Sua Missão</div><p class="dc-text">O que você veio aprender e desenvolver nesta vida. O caminho da sua evolução espiritual.</p></div>
-    <div class="descobrir-card"><div class="dc-icon">☋</div><div class="dc-title">Nodo Sul — Memórias da Alma</div><p class="dc-text">Talentos, padrões e crenças trazidas de outras vidas. O que precisa ser transcendido.</p></div>
-    <div class="descobrir-card"><div class="dc-icon">♄</div><div class="dc-title">Saturno — As Lições Sagradas</div><p class="dc-text">Os desafios kármicos que sua alma escolheu enfrentar. Onde está seu maior crescimento.</p></div>
-    <div class="descobrir-card"><div class="dc-icon">⚷</div><div class="dc-title">Quíron — A Ferida que Cura</div><p class="dc-text">Sua ferida mais profunda e o extraordinário dom de cura que nasce dela.</p></div>
-    <div class="descobrir-card"><div class="dc-icon">⚸</div><div class="dc-title">Lilith — O Poder Sombrio</div><p class="dc-text">Sua força instintiva reprimida e como resgatá-la para viver com autenticidade total.</p></div>
-    <div class="descobrir-card"><div class="dc-icon">♇</div><div class="dc-title">Plutão — Transformação Profunda</div><p class="dc-text">Os ciclos de morte e renascimento da sua alma e seu poder de transformação.</p></div>
+  <div class="grid">
+    <div class="card"><div class="card-icon">☊</div><div class="card-title">Nodo Norte — Sua Missão</div><p class="card-text">O que você veio aprender e desenvolver nesta vida. O caminho da sua evolução espiritual.</p></div>
+    <div class="card"><div class="card-icon">☋</div><div class="card-title">Nodo Sul — Memórias da Alma</div><p class="card-text">Talentos, padrões e crenças trazidas de outras vidas. O que precisa ser transcendido.</p></div>
+    <div class="card"><div class="card-icon">♄</div><div class="card-title">Saturno — As Lições Sagradas</div><p class="card-text">Os desafios kármicos que sua alma escolheu enfrentar. Onde está seu maior crescimento.</p></div>
+    <div class="card"><div class="card-icon">⚷</div><div class="card-title">Quíron — A Ferida que Cura</div><p class="card-text">Sua ferida mais profunda e o extraordinário dom de cura que nasce dela.</p></div>
+    <div class="card"><div class="card-icon">⚸</div><div class="card-title">Lilith — O Poder Sombrio</div><p class="card-text">Sua força instintiva reprimida e como resgatá-la para viver com autenticidade total.</p></div>
+    <div class="card"><div class="card-icon">♇</div><div class="card-title">Plutão — Transformação Profunda</div><p class="card-text">Os ciclos de morte e renascimento da sua alma e seu poder de transformação.</p></div>
   </div>
 </div>
 
+<!-- O QUE ESTÁ INCLUSO -->
 <div class="section alt">
-  <div class="sec-label">✦ Para Quem É</div>
-  <h2 class="sec-title">Este Mapa é Para Você Se...</h2>
-  <div class="paraquem">
-    <div class="pq-item"><div class="pq-icon">🌀</div><p class="pq-text">Sente que repete os mesmos padrões em relacionamentos, trabalho ou situações de vida.</p></div>
-    <div class="pq-item"><div class="pq-icon">✨</div><p class="pq-text">Busca compreender o propósito mais profundo da sua existência e missão espiritual.</p></div>
-    <div class="pq-item"><div class="pq-icon">🌙</div><p class="pq-text">Tem medos inexplicáveis ou talentos naturais que parecem vir de outro lugar.</p></div>
-    <div class="pq-item"><div class="pq-icon">🔥</div><p class="pq-text">Está em um momento de transformação intensa e busca clareza sobre o caminho.</p></div>
-    <div class="pq-item"><div class="pq-icon">💫</div><p class="pq-text">Quer entender por que certas pessoas e situações entram tão fortemente na sua vida.</p></div>
-  </div>
-</div>
-
-<div class="section">
   <div class="sec-label">✦ O Que Está Incluso</div>
   <h2 class="sec-title">Seu PDF Completo Contém</h2>
   <div class="inclui-list">
-    <div class="inclui-item"><span class="inclui-check">✦</span>Tabela completa com todos os pontos kármicos do seu mapa</div>
-    <div class="inclui-item"><span class="inclui-check">✦</span>Interpretação do Nodo Norte — sua missão nesta vida</div>
-    <div class="inclui-item"><span class="inclui-check">✦</span>Interpretação do Nodo Sul — heranças de outras existências</div>
-    <div class="inclui-item"><span class="inclui-check">✦</span>Análise de Saturno — lições e estruturas kármicas</div>
-    <div class="inclui-item"><span class="inclui-check">✦</span>Quíron — a ferida sagrada e o dom da cura</div>
-    <div class="inclui-item"><span class="inclui-check">✦</span>Lilith — poder instintivo e sombra a integrar</div>
-    <div class="inclui-item"><span class="inclui-check">✦</span>Plutão — ciclos de transformação e renascimento</div>
-    <div class="inclui-item"><span class="inclui-check">✦</span>Padrões kármicos a transmutar nesta vida</div>
-    <div class="inclui-item"><span class="inclui-check">✦</span>Dons espirituais trazidos pela alma</div>
-    <div class="inclui-item"><span class="inclui-check">✦</span>Mensagem final da alma com orientações práticas</div>
-    <div class="inclui-item"><span class="inclui-check">✦</span>PDF de até 15 páginas — gerado na hora após o pagamento</div>
+    <div class="inclui-item"><span class="inclui-check">✦</span>21 seções de interpretação profunda e personalizada</div>
+    <div class="inclui-item"><span class="inclui-check">✦</span>Tabela técnica kármica completa com todos os pontos</div>
+    <div class="inclui-item"><span class="inclui-check">✦</span>Análise profunda do Eixo Nodal — missão e origem da alma</div>
+    <div class="inclui-item"><span class="inclui-check">✦</span>Saturno, Quíron e Plutão — os três grandes professores</div>
+    <div class="inclui-item"><span class="inclui-check">✦</span>Lilith, Casa 12 e planetas retrógrados</div>
+    <div class="inclui-item"><span class="inclui-check">✦</span>Relacionamentos kármicos e missão espiritual</div>
+    <div class="inclui-item"><span class="inclui-check">✦</span>10 afirmações personalizadas para reprogramar a alma</div>
+    <div class="inclui-item"><span class="inclui-check">✦</span>Orientações práticas e próximos passos</div>
+    <div class="inclui-item"><span class="inclui-check">✦</span>PDF de até 20 páginas — gerado na hora após o pagamento</div>
   </div>
 </div>
 
-<div class="section alt">
+<!-- DEPOIMENTOS -->
+<div class="section">
   <div class="sec-label">✦ Depoimentos</div>
   <h2 class="sec-title">Transformações Reais</h2>
   <div class="testi-grid">
@@ -150,17 +167,73 @@ footer{border-top:1px solid var(--border);padding:2rem 1.5rem;text-align:center}
   </div>
 </div>
 
-<div class="section">
-  <div class="cta">
-    <h2>Sua Alma Tem uma Missão.<br>Descubra Qual é a Sua.</h2>
-    <p>Um PDF completo e personalizado, gerado por IA e supervisionado por astróloga com 30 anos de experiência.</p>
-    <div style="margin-bottom:1.5rem">
-      <div style="font-size:.85rem;color:#5a3d80;text-decoration:line-through">De R$ 67,97</div>
-      <div style="font-family:'Cinzel',serif;font-size:2rem;color:var(--gold)">R$ 47,97</div>
-      <div style="font-size:.75rem;color:#7a5ea0;margin-top:.3rem">🔥 Promoção de lançamento</div>
+<!-- CHECKOUT -->
+<div class="section alt" id="checkout">
+  <div class="checkout-section">
+    <div class="checkout-header">
+      <h2>✦ Sua Leitura Kármica</h2>
+      <p>Preencha seus dados e realize o pagamento para receber seu Mapa Kármico</p>
     </div>
-    <a href="https://astralia.online" target="_blank" class="btn-comprar">🔮 Quero Meu Mapa Kármico Agora</a>
-    <p style="font-size:.72rem;color:#3a2560;margin-top:1rem">🔒 Pagamento seguro · PIX e Cartão · PDF gerado na hora</p>
+
+    <!-- Formulário -->
+    <div id="form-section">
+      <div class="fbox">
+        <div class="fbox-title">✧ Seus Dados ✧</div>
+        <div class="fd"><label>Nome Completo</label><input type="text" id="f-nome" placeholder="Seu nome completo"/></div>
+        <div class="r2">
+          <div class="fd"><label>WhatsApp</label><input type="tel" id="f-whatsapp" placeholder="(00) 00000-0000"/></div>
+          <div class="fd"><label>E-mail</label><input type="email" id="f-email" placeholder="seu@email.com"/></div>
+        </div>
+        <div class="fbox-title" style="margin-top:.3rem">✧ Dados de Nascimento ✧</div>
+        <div class="r2">
+          <div class="fd"><label>Data de Nascimento</label><input type="date" id="f-data"/></div>
+          <div class="fd"><label>Hora (se souber)</label><input type="time" id="f-hora"/></div>
+        </div>
+        <div class="fd">
+          <label>Cidade de Nascimento</label>
+          <input type="text" id="f-cidade" placeholder="Digite sua cidade..." autocomplete="off" oninput="buscarCidade(this)"/>
+          <div class="autocomplete-results" id="lista-cidade"></div>
+          <input type="hidden" id="f-lat"/><input type="hidden" id="f-lon"/>
+        </div>
+      </div>
+
+      <div class="preco-box">
+        <div class="preco-label">Mapa Kármico Personalizado</div>
+        <div class="preco-val">R$ 47,97</div>
+      </div>
+
+      <div class="err-msg" id="err-msg">Preencha nome, data e cidade para continuar.</div>
+      <button class="btn-pagar" id="btn-pagar" onclick="iniciarCheckout()">🔮 Prosseguir para Pagamento</button>
+      <p style="text-align:center;font-size:.72rem;color:#3a2560;margin-top:.6rem">🔒 Pagamento seguro · PIX e Cartão · Dados protegidos pela LGPD</p>
+    </div>
+
+    <!-- Checkout Bricks -->
+    <div class="checkout-box" id="checkout-box">
+      <div class="checkout-box-title">✧ Pagamento Seguro via Mercado Pago ✧</div>
+      <div id="cardPaymentBrick_container"></div>
+    </div>
+
+    <!-- Aguardando -->
+    <div class="aguardando-box" id="aguardando-box">
+      <svg width="48" height="48" viewBox="-24 -24 48 48">
+        <circle r="20" fill="none" stroke="#2a1650" stroke-width="2"/>
+        <circle r="20" fill="none" stroke="#a07fff" stroke-width="2" stroke-dasharray="15 100" stroke-linecap="round">
+          <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="2s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+      <p>VERIFICANDO SEU PAGAMENTO...</p>
+      <small>Sua leitura será gerada automaticamente aqui! ✨</small>
+      <p style="font-size:.72rem;color:#3a2560;margin-top:.8rem" id="polling-status">Aguardando confirmação...</p>
+    </div>
+
+    <!-- Resultado -->
+    <div class="resultado-box" id="resultado-box">
+      <div id="leitura-content"></div>
+      <div class="download-box">
+        <p>✨ Sua leitura kármica está pronta! Baixe agora.</p>
+        <button class="btn-download" onclick="gerarPDF()">📥 Baixar Meu Mapa Kármico em PDF</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -169,5 +242,283 @@ footer{border-top:1px solid var(--border);padding:2rem 1.5rem;text-align:center}
   <p class="footer-text">Leituras geradas por Inteligência Artificial, supervisionadas por astróloga com 30 anos de experiência.<br>Para fins de autoconhecimento e entretenimento espiritual · Dados protegidos pela LGPD</p>
 </footer>
 
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+let MP_PUBLIC_KEY = '';
+async function carregarConfig(){try{const r=await fetch('/api/config');const data=await r.json();MP_PUBLIC_KEY=data.publicKey;}catch(e){console.error('Config erro:',e);}}
+carregarConfig();
+let mp, bricksBuilder;
+let dadosForm = {}, sessionId = '', leituraSecoes = [];
+let pollingInterval = null, tentativas = 0;
+
+// Autocomplete cidade
+document.addEventListener('click', e => {
+  const lista = document.getElementById('lista-cidade');
+  if (!lista.contains(e.target)) lista.style.display = 'none';
+});
+
+async function buscarCidade(input) {
+  const q = input.value.trim();
+  const lista = document.getElementById('lista-cidade');
+  if (q.length < 3) { lista.style.display = 'none'; return; }
+  try {
+    const r = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=5&accept-language=pt`);
+    const data = await r.json();
+    if (!data.length) { lista.style.display = 'none'; return; }
+    lista.innerHTML = data.map(d => `<div class="autocomplete-item" onclick="selecionarCidade('${d.display_name.replace(/'/g,"\\'")}','${d.lat}','${d.lon}')">${d.display_name}</div>`).join('');
+    lista.style.display = 'block';
+  } catch(e) { lista.style.display = 'none'; }
+}
+
+function selecionarCidade(nome, lat, lon) {
+  document.getElementById('f-cidade').value = nome;
+  document.getElementById('f-lat').value = lat;
+  document.getElementById('f-lon').value = lon;
+  document.getElementById('lista-cidade').style.display = 'none';
+}
+
+async function iniciarCheckout() {
+  const nome = document.getElementById('f-nome').value.trim();
+  const data = document.getElementById('f-data').value;
+  const cidade = document.getElementById('f-cidade').value.trim();
+
+  if (!nome || !data || !cidade) {
+    document.getElementById('err-msg').style.display = 'block';
+    return;
+  }
+  document.getElementById('err-msg').style.display = 'none';
+
+  dadosForm = {
+    nome, data,
+    hora: document.getElementById('f-hora').value,
+    cidade,
+    whatsapp: document.getElementById('f-whatsapp').value,
+    email: document.getElementById('f-email').value,
+    lat: document.getElementById('f-lat').value,
+    lon: document.getElementById('f-lon').value,
+    timezone: -3
+  };
+
+  const btn = document.getElementById('btn-pagar');
+  btn.textContent = '⏳ Gerando checkout...';
+  btn.disabled = true;
+
+  try {
+    const r = await fetch('/api/pagamento', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome: dadosForm.nome, email: dadosForm.email || 'cliente@astralia.online', dados: dadosForm })
+    });
+    const result = await r.json();
+
+    if (result.sessionId) {
+      sessionId = result.sessionId;
+      sessionStorage.setItem('sessionId', sessionId);
+      sessionStorage.setItem('dadosForm', JSON.stringify(dadosForm));
+
+      // Esconde formulário e mostra Bricks
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('checkout-box').style.display = 'block';
+
+      // Inicializa MP Bricks
+      mp = new MercadoPago(MP_PUBLIC_KEY, { locale: 'pt-BR' });
+      bricksBuilder = mp.bricks();
+
+      await bricksBuilder.create('payment', 'cardPaymentBrick_container', {
+        initialization: {
+          amount: 47.97,
+          preferenceId: result.id
+        },
+        customization: {
+          paymentMethods: {
+            ticket: 'all',
+            creditCard: 'all',
+            debitCard: 'all',
+            mercadoPago: 'all'
+          },
+          visual: {
+            style: {
+              theme: 'dark',
+              customVariables: {
+                baseColor: '#a07fff',
+                baseColorFirstVariant: '#5a1090',
+                secondaryColor: '#0d0620',
+                errorColor: '#e07060',
+                successColor: '#90d0a0',
+                outlinePrimaryColor: '#a07fff',
+                outlineSecondaryColor: '#1c0e40',
+                buttonTextColor: '#ffffff',
+                fontSizeExtraSmall: '12px',
+                fontSizeSmall: '14px',
+                fontSizeMedium: '16px',
+                formBackgroundColor: '#0d0620',
+                inputBackgroundColor: '#110830',
+                inputFocusedBorderColor: '#a07fff',
+                inputBorderColor: '#2a1650',
+                labelColor: '#b090e0',
+                fontFamily: 'Cormorant Garamond, serif'
+              }
+            }
+          }
+        },
+        callbacks: {
+          onReady: () => console.log('Brick pronto'),
+          onSubmit: async ({ selectedPaymentMethod, formData }) => {
+            // Pagamento submetido — inicia polling
+            document.getElementById('checkout-box').style.display = 'none';
+            document.getElementById('aguardando-box').style.display = 'block';
+            iniciarPolling();
+          },
+          onError: (error) => {
+            console.error('Brick erro:', error);
+            document.getElementById('form-section').style.display = 'block';
+            document.getElementById('checkout-box').style.display = 'none';
+            document.getElementById('err-msg').textContent = 'Erro no pagamento. Tente novamente.';
+            document.getElementById('err-msg').style.display = 'block';
+            btn.textContent = '🔮 Prosseguir para Pagamento';
+            btn.disabled = false;
+          }
+        }
+      });
+
+    } else {
+      throw new Error(result.error || 'Erro ao criar checkout');
+    }
+  } catch(e) {
+    console.error('Erro:', e);
+    btn.textContent = '🔮 Prosseguir para Pagamento';
+    btn.disabled = false;
+    document.getElementById('err-msg').textContent = 'Erro ao iniciar checkout. Tente novamente.';
+    document.getElementById('err-msg').style.display = 'block';
+  }
+}
+
+function iniciarPolling() {
+  tentativas = 0;
+  if (pollingInterval) clearInterval(pollingInterval);
+
+  pollingInterval = setInterval(async () => {
+    tentativas++;
+    document.getElementById('polling-status').textContent = `Verificando... (${tentativas}/40)`;
+
+    if (tentativas > 40) {
+      clearInterval(pollingInterval);
+      document.getElementById('polling-status').textContent = 'Tempo esgotado. Entre em contato: contato@astralia.online';
+      return;
+    }
+
+    try {
+      const r = await fetch(`/api/check?sessionId=${sessionId}`);
+      const data = await r.json();
+
+      if (data.status === 'approved') {
+        clearInterval(pollingInterval);
+        document.getElementById('aguardando-box').style.display = 'none';
+        gerarLeitura();
+      }
+    } catch(e) { console.log('Polling erro:', e.message); }
+  }, 3000);
+}
+
+async function gerarLeitura() {
+  document.getElementById('resultado-box').style.display = 'block';
+  document.getElementById('leitura-content').innerHTML = `
+    <div style="text-align:center;padding:2rem">
+      <svg width="54" height="54" viewBox="-27 -27 54 54" style="animation:spin 3s linear infinite">
+        <circle r="22" fill="none" stroke="#2a1650" stroke-width="2"/>
+        <circle r="22" fill="none" stroke="#a07fff" stroke-width="2" stroke-dasharray="18 120" stroke-linecap="round"/>
+      </svg>
+      <p style="font-family:'Cinzel',serif;font-size:.8rem;color:#a07fff;margin-top:1rem;letter-spacing:.1em">GERANDO SEU MAPA KÁRMICO...</p>
+      <p style="font-size:.85rem;color:#6a4d90;margin-top:.5rem;font-style:italic">Os astros estão sendo consultados ✨</p>
+    </div>`;
+
+  try {
+    const r = await fetch('/api/leitura', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sessionId,
+        dados: { ...dadosForm, tipo: 'mapa-karmico', preco: 47.97 }
+      })
+    });
+
+    if (!r.ok) {
+      const err = await r.json();
+      throw new Error(err.error || 'Erro ' + r.status);
+    }
+
+    const j = await r.json();
+    let secoes = [];
+    const txt = j.content ? j.content.map(b => b.text || '').join('').replace(/```json|```/g, '').trim() : '';
+    if (txt) {
+      try { const l = JSON.parse(txt); secoes = l.secoes || []; } catch(e) { console.log('Parse erro:', e); }
+    }
+    leituraSecoes = secoes;
+
+    document.getElementById('leitura-content').innerHTML = secoes.length > 0
+      ? secoes.map(s => `
+          <div class="res-card">
+            <h3>${s.titulo}</h3>
+            <p>${s.texto}</p>
+          </div>`).join('')
+      : `<div class="res-card"><h3>✦ Seu Mapa Kármico</h3><p>${txt}</p></div>`;
+
+    sessionStorage.removeItem('dadosForm');
+    sessionStorage.removeItem('sessionId');
+
+  } catch(e) {
+    console.error('Erro leitura:', e);
+    document.getElementById('leitura-content').innerHTML = `
+      <div class="res-card">
+        <h3>⚠️ Erro ao gerar leitura</h3>
+        <p>Ocorreu um problema: ${e.message}. Entre em contato: contato@astralia.online</p>
+      </div>`;
+  }
+}
+
+function gerarPDF() {
+  const d = dadosForm;
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Mapa Kármico — ${d.nome}</title>
+  <style>body{font-family:Georgia,serif;background:#06030e;color:#e5d0ff;max-width:820px;margin:0 auto;padding:2rem}
+  .titulo{color:#f0d080;font-size:2rem;text-align:center;margin-bottom:2rem;font-family:serif;letter-spacing:.2em}
+  .card{background:#0d0620;border:1px solid #1c0e40;border-radius:10px;padding:1.3rem;margin-bottom:1rem}
+  .card-titulo{color:#b090e0;font-size:.75rem;letter-spacing:.12em;margin-bottom:.65rem;font-family:serif}
+  .card-texto{color:#d0b8f5;line-height:1.9;font-size:.97rem}
+  .footer{text-align:center;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #1c0e40;font-size:.75rem;color:#5a3d80}</style>
+  </head><body>
+  <div class="titulo">🔮 MAPA KÁRMICO DE ${d.nome.toUpperCase()}</div>
+  ${leituraSecoes.map(s => `<div class="card"><div class="card-titulo">${s.titulo}</div><div class="card-texto">${s.texto}</div></div>`).join('')}
+  <div class="footer"><p>Astral IA · mapakarmico.astralia.online</p><p>Gerado em ${new Date().toLocaleDateString('pt-BR')} · Para fins de autoconhecimento e entretenimento espiritual</p></div>
+  </body></html>`;
+
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `MapaKarmico-${d.nome.replace(/\s+/g, '-')}.html`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// Verifica retorno após pagamento
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const session = params.get('session');
+  const status = params.get('status');
+
+  if (session && status === 'approved') {
+    sessionId = session;
+    const dados = JSON.parse(sessionStorage.getItem('dadosForm') || 'null');
+    if (dados) {
+      dadosForm = dados;
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('resultado-box').style.display = 'block';
+      gerarLeitura();
+    }
+  }
+})();
+</script>
 </body>
 </html>
